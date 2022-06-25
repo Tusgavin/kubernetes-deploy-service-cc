@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: american-pred-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tusgavin-american-pred
+  template:
+    metadata:
+      labels:
+        app: tusgavin-american-pred
+    spec:
+      containers:
+      - name: tusgavin-american-pred
+        image: tusgavin/american-pred:0.1
+        ports:
+        - containerPort: 5000
